@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+
+:root {
+    /* COLOURS */
+
+    /* BACKGROUND-GRADIENT */
+
+    --clr-gradient-violet: hsl(273, 75%, 66%);
+    --clr-gradient-blue: hsl(240, 73%, 65%);
+
+    /* PRIMARY COLOURS */
+
+    --clr-primary-blue: hsl(238, 29%, 16%);
+    --clr-primary-red: hsl(14, 88%, 65%);
+
+    /* NEUTRAL COLOURS */
+
+    --clr-neutral-gray-200: hsl(240, 5%, 91%);
+    --clr-neutral-gray-600: hsl(240, 6%, 50%);
+    --clr-neutral-gray-800: hsl(237, 12%, 33%);
+
+    /* FONTS */
+
+    --ff-main: 'Kumbh Sans', sans-serif;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, var(--clr-gradient-violet), var(--clr-gradient-blue));
+    font-family: var(--ff-main);
+}
+.faq {
+    width: 21rem;
+    padding: 7rem 1rem 2.5rem 1rem;
+    background-color: white;
+    border-radius: 2rem;
+    position: relative;
+    transition: .5s;
+}
+.faq::before {
+    content: "";
+    background: url(images/illustration-woman-online-mobile.svg) no-repeat;
+    width: 268px;
+    height: 180px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-45%, -60%);
+}
+.faq::after {
+    content: "";
+    background: url(images/bg-pattern-mobile.svg) no-repeat;
+    width: 268px;
+    height: 180px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-45%, 0%);
+}
+.question {
+    margin-bottom: 2rem;
+}
+.questions__title {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.question__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--clr-neutral-gray-600);
+    cursor: pointer;
+    position: relative;
+}
+.question__title:hover {
+    color: var(--clr-primary-red);
+}
+.question__title::after {
+    position: absolute;
+    content: "";
+    height: .5px;
+    background-color: var(--clr-neutral-gray-200);
+    width: 97%;
+    bottom: -1rem;
+}
+.question__button {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+}
+.question__title__text {
+    font-size: .8rem;
+}
+.question__text {
+    display: none;
+    position: relative;
+    margin-top: .5rem;
+}
+.question__text::after {
+    position: absolute;
+    content: "";
+    height: .5px;
+    background-color: var(--clr-neutral-gray-200);
+    width: 97%;
+    bottom: -1rem;
+}
+.question__text .question__title__text {
+    color: var(--clr-neutral-gray-600);
+    font-size: .75rem;
+}
+
+.show-text .question__title .question__title__text {
+    color: var(--clr-primary-blue);
+    font-weight: 700;
+}
+.show-text .question__button {
+    transform: rotate(180deg);
+}
+.show-text .question__title::after {
+    display: none;
+}
+.show-text .question__text {
+    display: block;
+}
+
+@keyframes box-movement {
+    from {
+        top: 66%;
+    }
+    50% {
+        top: 68%;
+    }
+    to {
+        top: 70%;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .faq {
+        width: 38rem;
+    }
+}
+@media screen and (min-width: 1100px) {
+    .faq {
+        width: 58rem;
+        display: flex;
+        justify-content: flex-end;
+        padding: 3rem 7rem 5rem 0;
+        background:
+        url(images/illustration-woman-online-desktop.svg) bottom 3rem left -5.1rem no-repeat,
+        url(images/bg-pattern-desktop.svg) bottom -10rem left -36rem no-repeat;
+        background-color: white;
+        background-size: 45%;
+    }
+    .questions {
+        width: 50%;
+    }
+    .questions__title {
+        text-align: unset;
+    }
+    .question__title__text {
+        font-size: .9rem;
+    }
+    .question__text .question__title__text {
+        font-size: .85rem;
+    }
+    .question__title::after,
+    .question__text::after {
+        width: 105%;
+    }
+    .faq::before {
+        background: url(images/illustration-box-desktop.svg) no-repeat;
+        animation: box-movement .9s linear 0s infinite alternate none;
+        left: -.7rem;
+    }
+    .faq::after {
+        display: none;
+    }
+}
